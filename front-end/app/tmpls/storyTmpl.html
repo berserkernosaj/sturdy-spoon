@@ -1,8 +1,8 @@
 <div class="story">
   {{currentPage.text}}
-  <div class="choices" ng-repeat="choice in choices">
+  <div class="choices" ng-repeat="choice in currentPage.pathOptions">
 
-    <input type="button" name="name" value="{{choice.title}}" ng-click="pageFinder(choice)">
+    <input type="button" name="name" value="{{choice.pathTitle}}" ng-click="pageFinder(choice._id)">
 
   </div>
 </div>
