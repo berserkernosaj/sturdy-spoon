@@ -110,6 +110,15 @@ app.post('/api/users', function(req, res, next){
 });
 // holy crap delete this test before live hosting this thing!
 
+app.get('/api/users', function(req, res, next){
+  User.find(function(err, users){
+    if (err){
+      return res.status(500).send(err);
+    }else{
+      return res.status(200).json(users);
+    }
+  });
+});
 
 
 

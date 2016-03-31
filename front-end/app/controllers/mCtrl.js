@@ -7,7 +7,7 @@ $scope.registerFunc = function(user, email, pass){
     }else{
       $scope.userName = '';
       $scope.email = '';
-      $scpe.password = '';
+      $scope.password = '';
     }
   });
 }
@@ -16,6 +16,9 @@ $scope.registerShower = function(){
   $scope.registerShow = false;
 }
 $scope.registerHider = function(){
+  $scope.userName = '';
+  $scope.email = '';
+  $scope.password = '';
   $scope.registerShow = true;
 }
 
