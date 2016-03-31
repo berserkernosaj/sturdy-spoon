@@ -4,7 +4,12 @@ angular.module('harold', ["ui.router"])
       .state("story", {
         url: "/story",
         templateUrl: "/app/tmpls/storyTmpl.html",
-        controller: "mCtrl"
+        controller: "storyCtrl"
       })
-      $urlRouterProvider.otherwise("/story");
+      .state("welcome", {
+        url: "/welcome",
+        templateUrl: "/app/tmpls/welcomeTmpl.html",
+        controller: "welcomeCtrl"
+      })
+      $urlRouterProvider.otherwise("/welcome");
   })

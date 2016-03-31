@@ -14,6 +14,17 @@ this.getStory = function() {
     return res.data;
   })
   }
+  this.register = function(user, email, pass){
+    return $http({
+      method: "POST",
+      url:'/api/users'
+    }).then(function(res){
+      if (res.status !== 200){
+        alert("Sorry, there was a problem");
+      }
+      return res.data;
+      })
+  }
 
 
 });
