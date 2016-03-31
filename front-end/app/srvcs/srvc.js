@@ -20,7 +20,7 @@ this.getStory = function() {
       url:'/api/users'
     }).then(function(res){
       if (res.status !== 200){
-        alert("Sorry, there was a problem");
+        alert("Sorry, there was a problem, yes there was");
       }
       return res.data;
       })
