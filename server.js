@@ -81,32 +81,33 @@ app.get('/api/story', requests.storyGet);
 
 //User Stuff Here:
 app.post('/api/users', function(req, res, next){
-  User.findOne({ 'userName' : req.body.username}, function(err, user){
+/*  User.findOne({ 'userName' : req.body.userName}, function(err, user){
     if (err){
       return res.status(500).json(err);
     }
+    return user;
+  })
     if (user){
-      return res.status(401).send('sorry, that username already exists');
-    }else {
+      return res.status(401).json(res);
+    }
       User.findOne({ 'email' : req.body.email}, function(err, user){
         if (err){
           return res.status(500).json(err);
         }
+        return user;
+      })
         if (user){
           return res.status(401).send('sorry, a user with that email already exits');
-        }else {
-          var user = new User(req.body);
+        }
+        */  var user = new User(req.body);
           user.save(function(err, user){
             if (err){
+              console.log(err);
               return res.status(500).send(err);
             }else{
-              return res.json(user);
+              return res.status(200).json(res.status);
             }
           });
-        }
-      })
-    }
-  })
 });
 // holy crap delete this test before live hosting this thing!
 

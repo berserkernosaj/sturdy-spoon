@@ -17,13 +17,29 @@ this.getStory = function() {
   this.register = function(user, email, pass){
     return $http({
       method: "POST",
-      url:'/api/users'
-    }).then(function(res){
-      if (res.status !== 200){
-        alert("Sorry, there was a problem, yes there was");
+      url:'/api/users',
+      data: {
+        userName: user,
+        email: email,
+        password: pass
       }
-      return res.data;
-      })
+    }).then(function success(res){
+      if (res.status !== 200){
+        alert("Sorry, there was a problem or was there?");
+      }
+      console.log(res);
+      return res;
+    }, function failure(err) {
+      console.log(err);
+      if (err.data.errmsg.includes('userName')){
+        var eggnog = "That username already exists."
+        return eggnog;
+      }
+      if (err.data.errmsg.includes("email")){
+        var eggnog = "That email already exists."
+        return eggnog;
+      };
+    });
   }
 
 
