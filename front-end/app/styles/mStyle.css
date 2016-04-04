@@ -10,7 +10,7 @@ html, body, h1, h2, h3, h4, h5 {
   background-color: beige;
   text-align: center;
   width: 100%;
-  height: 100px;
+  height: 200px;
   float:left;
 }
 .foot{
@@ -33,4 +33,10 @@ html, body, h1, h2, h3, h4, h5 {
 .register{
   text-align: center;
   background: gray;
+}
+.userDisplay{
+  float: right;
+}
+.userbox{
+  text-align: center;
 }

@@ -2,7 +2,10 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 var mongoose = require('mongoose');
+var passport = require('passport')
+  , LocalStrategy = require('passport-local').Strategy;
 var expressSession = require('express-session');
+var UserCtrl = require('./serverControllers/UserCtrl');
 var requests = require('./serverControllers/requests.js');
 var corsOptions = {
   origin: 'http://localhost:8782'
@@ -17,17 +20,50 @@ var db = mongoose.connection;
 
 
 
+passport.use('local-login', new LocalStrategy({
+usernameField: 'userName',
+passwordField: 'password'
+},
+  function(username, password, done) {
+    User.findOne({ userName: username }, function(err, user) {
+      if (err) { return done(err); }
+      if (!user) {
+        return done(null, false, { message: 'Incorrect username.' });
+      }
+      if (user.password !== password) {
+        return done(null, false, { message: 'Incorrect password.' });
+      }
+      return done(null, user);
+    });
+  }
+));
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+  User.findById(id, function(err, user) {
+    done(err, user);
+  });
+});
 
 app.use(express.static(__dirname + '/front-end'));
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
-app.use(expressSession({secret: config.sessionSecret }));
+app.use(expressSession({
+  secret: config.sessionSecret,
+  resave: false,
+  saveUnitialized: false
+ }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 mongoose.connect('mongodb://localhost/test');
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   console.log("Connected to MongoDB");
 });
+
 
 //Story Path Stuff Here:
 
@@ -80,35 +116,17 @@ app.get('/api/storyPath', function(req, res, next){
 app.get('/api/story', requests.storyGet);
 
 //User Stuff Here:
-app.post('/api/users', function(req, res, next){
-/*  User.findOne({ 'userName' : req.body.userName}, function(err, user){
-    if (err){
-      return res.status(500).json(err);
-    }
-    return user;
-  })
-    if (user){
-      return res.status(401).json(res);
-    }
-      User.findOne({ 'email' : req.body.email}, function(err, user){
-        if (err){
-          return res.status(500).json(err);
-        }
-        return user;
-      })
-        if (user){
-          return res.status(401).send('sorry, a user with that email already exits');
-        }
-        */  var user = new User(req.body);
-          user.save(function(err, user){
-            if (err){
-              console.log(err);
-              return res.status(500).send(err);
-            }else{
-              return res.status(200).json(res.status);
-            }
-          });
+app.post('/api/users/register', UserCtrl.register);
+app.post('/api/users/login', passport.authenticate('local-login', {failureRedirect: '/api/users/failed'}), function(req, res, next) {
+  console.log('Logged in');
+  res.status(200).json(req.user);
 });
+app.post('/api/users/failed', UserCtrl.loginFailed);
+app.get('/api/users/failed', UserCtrl.loginFailed2);
+
+app.get('/api/users/logout', UserCtrl.logOut);
+app.put('/api/users/bookmark', UserCtrl.bookmark);
+
 // holy crap delete this test before live hosting this thing!
 
 app.get('/api/users', function(req, res, next){

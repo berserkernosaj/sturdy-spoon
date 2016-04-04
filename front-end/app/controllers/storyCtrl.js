@@ -11,6 +11,18 @@ $scope.getStory = function(){
   });
 }
 $scope.getStory();
+$scope.bookmark = function(currentPage){
+  $scope.User.bookmarks.push(currentPage);
+  srvc.bookmark($scope.User).then(function (res) {
+    if (res.status !== 200){
+      alert(res.data.msg);
+    }
+    else{
+      $scope.User = res.data;
+    }
+  });
+  console.log($scope.User.bookmarks);
+}
 
 
 

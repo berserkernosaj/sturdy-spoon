@@ -11,5 +11,10 @@ angular.module('harold', ["ui.router"])
         templateUrl: "/app/tmpls/welcomeTmpl.html",
         controller: "welcomeCtrl"
       })
+      .state("user", {
+        url: "/user",
+        templateUrl: "/app/tmpls/userTmpl.html",
+        controller: "storyCtrl"
+      })
       $urlRouterProvider.otherwise("/welcome");
   })

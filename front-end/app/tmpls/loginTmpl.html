@@ -1,0 +1,9 @@
+<section class="loginPage">
+  <form class="login" ng-hide="loginShow">
+    <h3>Login</h3>
+    Username:<input type="text" placeholder="username" ng-model="userName" name="userName" value="">
+    Password:<input type="password" placeholder="password" name="password" ng-model="password" value="">
+    <input type="button" name="name" value="login" ng-click="loginFunc(userName, password)">
+    <input type="button" name="name" value="cancel" ng-click="loginHider()">
+  </form>
+</section>

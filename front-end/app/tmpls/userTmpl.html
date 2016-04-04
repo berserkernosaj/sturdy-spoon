@@ -1,0 +1,11 @@
+<div class="userbox">
+<h2>Hello {{User.userName}}</h2>
+<div ="userButtons">
+  <a ui-sref="story">
+ <input type="button" value="Begin">
+</a>
+</div>
+<div class="bookmarks" ng-repeat="bookmark in User.bookmarks">
+  <input type="button" name="name" value="{{bookmark}}">
+</div>
+</div>
