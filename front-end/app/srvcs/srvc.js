@@ -1,5 +1,13 @@
 angular.module('harold').service('srvc', function($http, $q){
   var id = "56f320b435f8b8ec0e81eba7";
+  this.superUser;
+  this.setSuperUser = function (newUser) {
+    this.superUser = newUser;
+    return this.superUser;
+  }
+  this.emptySuperUser = function () {
+    this.superUser = "";
+  }
   this.setId= function(newId) {
       id = newId;
     }
@@ -69,16 +77,28 @@ this.getStory = function() {
       return res;
     })
   }
-  this.bookmark = function (User) {
+  this.bookmark = function (bookmark, User) {
     return $http({
-      method: "PUT",
-      url: "/api/users/bookmark",
-      data: {User}
+      method: "POST",
+      url: "/api/users/bookmark" + User._id,
+      data: {bookmark: bookmark}
     }).then(function succes(res) {
       return res;
     }, function failure(err) {
       return err;
     })
   }
+  this.remBookmark = function (ind, User) {
+    return $http({
+      method: "POST",
+      url: "/api/users/bookmark/remove" + User._id,
+      data: {bookmark: ind}
+    }).then(function succes(res) {
+      return res;
+    }, function failure(err) {
+      return err;
+    })
+  }
+
 
 });

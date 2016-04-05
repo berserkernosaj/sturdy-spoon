@@ -6,6 +6,7 @@
 </a>
 </div>
 <div class="bookmarks" ng-repeat="bookmark in User.bookmarks">
-  <input type="button" name="name" value="{{bookmark}}">
+  <input type="button" name="name" value="{{bookmark.pathTitle}}">
+  <input type="button" name="name" ng-click="remBookmark($index)" value="Delete">
 </div>
 </div>

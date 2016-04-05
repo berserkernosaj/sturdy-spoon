@@ -25,7 +25,7 @@ usernameField: 'userName',
 passwordField: 'password'
 },
   function(username, password, done) {
-    User.findOne({ userName: username }, function(err, user) {
+    User.findOne({ userName: username }).populate("bookmarks").exec(function(err, user) {
       if (err) { return done(err); }
       if (!user) {
         return done(null, false, { message: 'Incorrect username.' });
@@ -125,7 +125,9 @@ app.post('/api/users/failed', UserCtrl.loginFailed);
 app.get('/api/users/failed', UserCtrl.loginFailed2);
 
 app.get('/api/users/logout', UserCtrl.logOut);
-app.put('/api/users/bookmark', UserCtrl.bookmark);
+app.post('/api/users/bookmark:id', UserCtrl.bookmark);
+app.post('/api/users/bookmark/remove:id', UserCtrl.bookmarkRem);
+
 
 // holy crap delete this test before live hosting this thing!
 

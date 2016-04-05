@@ -32,14 +32,40 @@ module.exports = {
     res.status(401).send({msg: 'Username or passport is incorrect'});
   },
   bookmark: function (req, res, next) {
-    console.log(req.body);
-    id = req.body._id;
-    User.findByIdAndUpdate(id, {$set: req.body}, {new: true}).populate("bookmarks").exec(function(err, user){
+    //console.log(req);
+    var id = req.params.id;
+    User.findById(id).populate("bookmarks").exec(function(err, user){
       if (err){
         return res.status(500).send(err);
       }else{
-        return res.status(200).json(user);
+        user.bookmarks.push(req.body.bookmark);
+        user.save(function(err, data) {
+          if (err){
+            res.status(500).send(err);
+          }else {
+            res.status(200).json(data);
+          }
+        });
+      }
+    });
+  },
+  bookmarkRem: function (req, res, next) {
+    //console.log(req);
+    var id = req.params.id;
+    User.findById(id).populate("bookmarks").exec(function(err, user){
+      if (err){
+        return res.status(500).send(err);
+      }else{
+        user.bookmarks.splice(req.body.ind, 1);
+        user.save(function(err, data) {
+          if (err){
+            res.status(500).send(err);
+          }else {
+            res.status(200).json(data);
+          }
+        });
       }
     });
   }
+
 }

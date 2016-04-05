@@ -40,3 +40,23 @@ html, body, h1, h2, h3, h4, h5 {
 .userbox{
   text-align: center;
 }
+.loginPage{
+    position:fixed;
+    padding:0;
+    margin:0;
+
+    top:0;
+    left:0;
+
+    width: 100%;
+    height: 100%;
+    background: blue;
+    text-align: center;
+}
+.login{
+    padding:0;
+    margin:0;
+    width: 100px;
+    height: 100px;
+    background: #dad7da;
+}

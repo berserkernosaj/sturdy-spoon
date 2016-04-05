@@ -23,7 +23,6 @@ $scope.registerHider = function(){
   $scope.password = '';
   $scope.registerShow = true;
 }
-$scope.User;
 $scope.userCheck = function() {
   if(!$scope.User){
     $state.go("welcome");
@@ -40,7 +39,9 @@ $scope.loginFunc = function(user, pass){
       $scope.password = '';
       $scope.loginShow = true;
       console.log(res);
-      $scope.User = res.data;
+      srvc.setSuperUser(res.data);
+      $scope.User = srvc.superUser;
+      console.log(srvc.superUser, $scope.User);
     }
   });
 }
@@ -56,7 +57,8 @@ $scope.loginHider = function(){
 $scope.logOut = function() {
   srvc.logOut().then(function(res){
     alert("You are logged Out");
-    $scope.User = undefined;
+    srvc.emptySuperUser();
+    $scope.User = srvc.superUser;
     $scope.userCheck();
   });
 }
