@@ -4,14 +4,15 @@
     <link rel="stylesheet" href="app/styles/mstyle.css" charset="utf-8">
     <title>Bob's Story</title>
   </head>
+  <div class="userDisplay" ng-hide="!User">
+    {{User.userName}} is logged in.
+    <a ui-sref="user">
+      <p>My profile</p>
+    </a>
+  </div>
+
   <body  class="main" ng-controller="mCtrl">
     <header class="storyTitle">
-      <div class="userDisplay" ng-hide="!User">
-        {{User.userName}} is logged in.
-        <a ui-sref="user">
-          <span>My profile</span>
-        </a>
-      </div>
       <h3>Bob's Story</h3>
       <div>
         <a ui-sref="story">Story</a>
@@ -22,8 +23,6 @@
       <input type="button" name="name" value="register" ng-click="registerShower()">
       <input type="button" name="name" value="login" ng-click="loginShower()">
       <input type="button" name="name" value="logout" ng-click="logOut()">
-      <register-directive></register-directive>
-      <login-directive></login-directive>
 
 </header>
     <div class="container" ui-view>
@@ -31,9 +30,7 @@
     </div>
 
 
-    <section class="foot">
 
-    </section>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js"></script>
     <script type="text/javascript" src="app/app.js"></script>

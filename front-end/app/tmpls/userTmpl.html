@@ -1,4 +1,6 @@
 <div class="userbox">
+  <register-directive></register-directive>
+  <login-directive></login-directive>
 <h2>Hello {{User.userName}}</h2>
 <div ="userButtons">
   <a ui-sref="story">
@@ -6,7 +8,7 @@
 </a>
 </div>
 <div class="bookmarks" ng-repeat="bookmark in User.bookmarks">
-  <input type="button" name="name" value="{{bookmark.pathTitle}}">
+  <input type="button" name="name" value="{{bookmark.pathTitle}}"  ng-click="goBook(bookmark)">
   <input type="button" name="name" ng-click="remBookmark($index)" value="Delete">
 </div>
 </div>

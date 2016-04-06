@@ -1,12 +1,17 @@
 <div class="story">
+  <register-directive></register-directive>
+  <login-directive></login-directive>
+  <div class="storyText">
+
   {{currentPage.text}}
+</div>
+
   <div class="choices" ng-repeat="choice in currentPage.pathOptions">
 
     <input type="button" name="name" value="{{choice.pathTitle}}" ng-click="pageFinder(choice._id)">
 
   </div>
-  <div class="bookmarker">
+  <div class="bookmarker" ng-hide="!User">
     <input type="button" name="name" value="Bookmark" ng-click="bookmark(currentPage._id)">
   </div>
-  {{User.userName}}
 </div>

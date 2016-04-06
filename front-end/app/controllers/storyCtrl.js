@@ -1,4 +1,4 @@
-angular.module('harold').controller('storyCtrl', function($scope, srvc){
+angular.module('harold').controller('storyCtrl', function($scope, $state, srvc){
 
 $scope.User = srvc.superUser;
 $scope.getStory = function(){
@@ -11,6 +11,10 @@ $scope.getStory = function(){
 
   });
 }
+$scope.goBook = function(page) {
+  $scope.currentPage = page;
+  $state.go("story");
+}
 $scope.getStory();
 $scope.bookmark = function(currentPage){
   srvc.bookmark(currentPage, $scope.User).then(function (res) {
@@ -18,6 +22,7 @@ $scope.bookmark = function(currentPage){
       alert(res.data.msg);
     }
     else{
+      console.log(res.data);
       srvc.setSuperUser(res.data);
       $scope.User = srvc.superUser;
     }
