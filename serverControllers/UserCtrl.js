@@ -62,7 +62,7 @@ module.exports = {
       if (err){
         return res.status(500).send(err);
       }else{
-        user.bookmarks.splice(req.data.bookmark, 1);
+        user.bookmarks.splice(req.body.bookmark, 1);
         user.save(function(err, data) {
           if (err){
             res.status(500).send(err);
