@@ -43,7 +43,13 @@ module.exports = {
           if (err){
             res.status(500).send(err);
           }else {
-            res.status(200).json(data);
+            User.findById(id).populate("bookmarks").exec(function (err, user) {
+              if (err){
+                res.status(500).send(err);
+              }else {
+                res.status(200).json(user);
+              }
+            })
           }
         });
       }
@@ -56,7 +62,7 @@ module.exports = {
       if (err){
         return res.status(500).send(err);
       }else{
-        user.bookmarks.splice(req.body.ind, 1);
+        user.bookmarks.splice(req.data.bookmark, 1);
         user.save(function(err, data) {
           if (err){
             res.status(500).send(err);
