@@ -3,12 +3,10 @@
   <login-directive></login-directive>
 <h2>Hello {{User.userName}}</h2>
 <div ="userButtons">
-  <a ui-sref="story">
- <input type="button" value="Begin">
-</a>
+ <input type="button" value="Begin" ng-click="goBook('56f320b435f8b8ec0e81eba7')">
 </div>
 <div class="bookmarks" ng-repeat="bookmark in User.bookmarks">
-  <input type="button" name="name" value="{{bookmark.pathTitle}}"  ng-click="goBook(bookmark)">
+  <input type="button" name="name" value="{{bookmark.pathTitle}}"  ng-click="goBook(bookmark._id)">
   <input type="button" name="name" ng-click="remBookmark($index)" value="Delete">
 </div>
 </div>

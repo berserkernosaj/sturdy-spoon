@@ -12,7 +12,8 @@ $scope.getStory = function(){
   });
 }
 $scope.goBook = function(page) {
-  $scope.currentPage = page;
+  srvc.setId(page);
+  $scope.getStory();
   $state.go("story");
 }
 $scope.getStory();
@@ -29,7 +30,6 @@ $scope.bookmark = function(currentPage){
   });
 }
 $scope.remBookmark = function(ind) {
-  console.log(ind);
   srvc.remBookmark(ind, $scope.User).then(function(res) {
     if (res.status !== 200){
       alert(res.data.msg);
