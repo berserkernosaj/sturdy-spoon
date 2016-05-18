@@ -14,16 +14,27 @@
   <body  class="main" ng-controller="mCtrl">
     <header class="storyTitle">
       <h3>Bob's Story</h3>
-      <div>
-        <a ui-sref="story">Story</a>
-      </div>
-      <div>
-        <a ui-sref="welcome">Welcome</a>
-      </div>
-      <input type="button" name="name" value="register" ng-click="registerShower()">
-      <input type="button" name="name" value="login" ng-click="loginShower()">
-      <input type="button" name="name" value="logout" ng-click="logOut()">
-
+      <ul class="menu">
+        <a class="menuButtonLinks" ui-sref="story">
+        <li class="menuButtons">
+        Story
+      </li>
+      </a>
+      <a class="menuButtonLinks" ui-sref="welcome">
+      <li class="menuButtons">
+        Home
+        </li>
+        </a>
+        <li class="menuButtons" ng-click="registerShower()">
+      <span>Register</span>
+      </li>
+      <li class="menuButtons" ng-click="loginShower()">
+      <span>Login</span>
+      </li>
+      <li class="menuButtons" ng-click="logOut()">
+      <span>Logout</span>
+      </li>
+    </ul>
 </header>
     <div class="container" ui-view>
 

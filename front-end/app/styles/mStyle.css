@@ -24,10 +24,26 @@ html, body, h1, h2, h3, h4, h5 {
   width: 100%;
   height: 100%;
 }
+.storyBackground{
+  background-image: url("../images/scrolls-34607_960_720.png");
+  background-size: contain;
+  width: 750px;
+  height: 900px;
+  padding-top: 120px;
+  margin: auto;
+  background-repeat: no-repeat;
+}
+.storyTransBox{
+  margin: 0px 50px 0px;
+}
+.storyText{
+}
 .welcome{
   text-align: center;
   width: 100%;
   height: 100%;
+  background-image: url("../images/13-11-02-olb-by-RalfR-03.jpg");
+  background-repeat: no-repeat;
 }
 .register{
   text-align: center;
@@ -65,28 +81,6 @@ html, body, h1, h2, h3, h4, h5 {
     background: #f7f7f7;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.thebutton {
-  display: inline-block;
-  padding: 15px 25px;
-  font-size: 24px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  outline: none;
-  color: #fff;
-  background-color: #4CAF50;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px #999;
-}
-
-.thebutton:hover {background-color: #3e8e41}
-
-.theButton:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-}
 .loginButton{
   padding: 5px;
 }
@@ -95,4 +89,102 @@ html, body, h1, h2, h3, h4, h5 {
 }
 .choices{
   font-size: 34px;
+  display: inline-block;
+  position: relative;
+  z-index: 3;
+}
+.choiceButtons{
+  width: 280px;
+  height: 120px;
+  opacity: 0.2;
+  z-index: 4;
+}
+.registerLoginButtonBox{
+  font-size: 34px;
+  position: relative;
+  z-index: 3;
+}
+.registerLoginButtons{
+  width: 280px;
+  height: 120px;
+  opacity: 0.3;
+  z-index: 4;
+}
+.welcomeButtons{
+  position: relative;
+}
+.buttonImage{
+  width: 280px;
+  height: 120px;
+}
+.welcomeText{
+  position: absolute;
+  font-size: 34px;
+  top: 15px;
+  left: 250px;
+  width: 250px;
+  height: 88px;
+  margin: 0;
+  padding: 15px;
+  text-decoration: none;
+  color: black;
+}
+.choiceText{
+  position: absolute;
+  font-size: 16px;
+  top: 0;
+  left: 12px;
+  width: 250px;
+  height: 88px;
+  z-index: -1;
+}
+.loginText{
+  position: absolute;
+  font-size: 34px;
+  top: 15px;
+  left: 250px;
+  width: 250px;
+  height: 88px;
+  z-index: -1;
+  margin: 0;
+  padding: 15px;
+  color: black;
+}
+.registerText{
+  position: absolute;
+  font-size: 34px;
+  top: 15px;
+  left: 250px;
+  width: 250px;
+  height: 88px;
+  z-index: -1;
+  margin: 0;
+  padding: 5px;
+}
+.menu{
+  list-style-type: none;
+  margin: 0;
+  padding:  0;
+  padding: 14px 0px;
+  overflow: hidden;
+  background-color: #333;
+
+}
+.menuButtons{
+  display: inline;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  margin: 0;
+  background-color: #333;
+}
+.menuButtonLinks{
+  color: inherit;
+  text-decoration: inherit;
+  margin: 0;
+}
+.menu :hover {
+  background-color: black;
+  cursor: pointer;
 }
