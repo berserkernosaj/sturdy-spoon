@@ -13,20 +13,19 @@
 
   <body  class="main" ng-controller="mCtrl">
     <header class="storyTitle">
-      <h3>Bob's Story</h3>
       <ul class="menu">
-        <a class="menuButtonLinks" ui-sref="story">
-        <li class="menuButtons">
-        Story
-      </li>
-      </a>
       <a class="menuButtonLinks" ui-sref="welcome">
       <li class="menuButtons">
         Home
         </li>
         </a>
+        <a class="menuButtonLinks" ui-sref="story">
+        <li class="menuButtons">
+        Bob's Story
+      </li>
+      </a>
         <li class="menuButtons" ng-click="registerShower()">
-      <span>Register</span>
+      <span>Sign Up</span>
       </li>
       <li class="menuButtons" ng-click="loginShower()">
       <span>Login</span>
@@ -50,6 +49,7 @@
     <script type="text/javascript" src="app/controllers/mCtrl.js"></script>
     <script type="text/javascript" src="app/directives/registerDirective.js"></script>
     <script type="text/javascript" src="app/directives/loginDirective.js"></script>
+    <script type="text/javascript" src="app/directives/bigScrollDirective.js"></script>
     <script type="text/javascript" src="app/srvcs/srvc.js"></script>
 
 

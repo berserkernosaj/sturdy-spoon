@@ -4,18 +4,19 @@
   <login-directive></login-directive>
   <div class="storyBackground">
 
-    <div class="storyTransBox">
+    <div class="storyTextBox">
 
         <p class="storyText">{{currentPage.text}}</p>
     </div>
     <div class="choices" ng-repeat="choice in currentPage.pathOptions">
-      <input type="image" src="app/images/scroll-34606_960_720.png" class="choiceButtons" name="name" value="{{choice.pathTitle}}" ng-click="pageFinder(choice._id)"/>
-      <p class="choiceText">{{choice.pathTitle}}</p>
+      <input type="image" src="app/images/scroll-34606_960_720.png" class="choiceButtons" name="name" value="{{choice.pathTitle}}"/>
+      <p class="choiceText" ng-click="pageFinder(choice._id)">{{choice.pathTitle}}</p>
     </div>
-    <div class="bookmarker" ng-hide="!User">
-      <input type="button" name="name" value="Bookmark" ng-click="bookmark(currentPage._id)">
-
-    </input>
+    <!-- ng-hide="!User" -->
+      <input type="image" class="bookmarker" src="app/images/Bookmark_icon.svg (1).png" ng-click="bookmark(currentPage._id)">
+    <div class="bookmarks" >
+      <input type="image" src="app/images/scroll-34606_960_720.png" class="bookmarkButtons" name="name"/>
+      <p class="bookmarkText" ng-click="bookmark(currentPage._id)">Bookmark</p>
     </div>
   </div>
 </div>
