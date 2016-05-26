@@ -1,9 +1,20 @@
-<section class="loginPage" ng-hide="registerShow">
+<section ng-hide="registerShow">
+  <div class="loginPage">
+
+  </div>
   <form class="login" ng-hide="registerShow">
-    <h3>Register a new account</h3>
-    Username:<input type="text" placeholder="username" ng-model="userName" name="userName" value="">
-    Email:<input type="text" placeholder="email" ng-model="email" name="userName" value="">
-    Password:<input type="password" placeholder="password" name="password" ng-model="password" value="">
+    <h3>Sign Up For An Account</h3>
+    <div class="loginFields">
+      <div>
+        Username:<input type="text" placeholder="username" ng-model="userName" name="userName" value="">
+      </div>
+      <div>
+        Email:<input type="text" placeholder="email" ng-model="email" name="userName" value="">
+      </div>
+      <div>
+        Password:<input type="password" placeholder="password" name="password" ng-model="password" value="">
+      </div>
+    </div>
     <input type="button" name="name" value="register" ng-click="registerFunc(userName, email, password)">
     <input type="button" name="name" value="cancel" ng-click="registerHider()">
   </form>

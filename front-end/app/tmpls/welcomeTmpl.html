@@ -1,24 +1,44 @@
 <section class="welcome">
   <register-directive></register-directive>
   <login-directive></login-directive>
+  <div class="storyBackground">
 
-  <h2>Welcome!</h2>
-   <div ="welcomeButtons">
-     <a ui-sref="story">
-    <input type="button" value="Begin">
-  </a>
-  </div>
-  <div ="welcomeButtons">
-    <a ui-sref="story">
-    <input type="button" value="Continue">
-  </a>
-  </div>
-  <div ="welcomeButtons">
-    <input type="button" name="name" value="register" ng-click="registerShower()">
-  </div>
-  <div ="welcomeButtons">
-    <input type="button" name="name" value="login" ng-click="loginShower()">
-  </div>
 
+  <h2 class="somtimesYouGottaBeBig">Welcome!</h2>
+  <div class="navButtonsBox">
+    <div class="buttonWrapper">
+
+
+   <input type="image" src="app/images/scroll-34606_960_720.png" class="navButtons"/>
+ <p class="navText" ng-click="goToStory()">
+   Begin
+ </p>
+ </div>
+</div>
+
+  <div class="navButtonsBox">
+    <div class="buttonWrapper">
+
+   <input type="image" src="app/images/scroll-34606_960_720.png" class="navButtons"/>
+ <p class="navText" ng-click="registerShower()">
+   Sign Up
+ </p>
+ </div>
+</div>
+
+ <div class="navButtonsBox">
+   <div class="buttonWrapper">
+
+  <input type="image" src="app/images/scroll-34606_960_720.png" class="navButtons"/>
+<p class="navText" ng-click="loginShower()">
+  Login
+</p>
+</div>
+</div>
+
+
+
+
+</div>
 
 </section>

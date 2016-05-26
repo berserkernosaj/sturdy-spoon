@@ -17,6 +17,11 @@ $scope.registerShow = true;
 $scope.registerShower = function(){
   $scope.registerShow = false;
 }
+$scope.littleMenuHide = true;
+$scope.menuShower = function (){
+  $scope.littleMenuHide = !$scope.littleMenuHide;
+  console.log($scope.littleMenuHide);
+}
 $scope.registerHider = function(){
   $scope.userName = '';
   $scope.email = '';

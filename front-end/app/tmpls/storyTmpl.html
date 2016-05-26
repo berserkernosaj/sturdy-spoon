@@ -1,17 +1,20 @@
+<section class="welcome">
 <div class="story">
   <register-directive></register-directive>
   <login-directive></login-directive>
-  <div class="storyText">
+  <div class="storyBackgroundStory">
 
-  {{currentPage.text}}
-</div>
+    <div class="storyTextBox">
 
-  <div class="choices" ng-repeat="choice in currentPage.pathOptions">
-
-    <input type="button" name="name" value="{{choice.pathTitle}}" ng-click="pageFinder(choice._id)">
+        <p class="storyText">{{currentPage.text}}</p>
+    </div>
+    <div class="choices" ng-repeat="choice in currentPage.pathOptions">
+      <input type="image" src="app/images/scroll-34606_960_720.png" class="choiceButtons" name="name" value="{{choice.pathTitle}}"/>
+      <p class="choiceText" ng-click="pageFinder(choice._id)">{{choice.pathTitle}}</p>
+    </div>
+    <!-- ng-hide="!User" -->
+      <input type="image" class="bookmarker" src="app/images/Bookmark_icon.svg.png" ng-click="bookmark(currentPage._id)" ng-hide="!User">
 
   </div>
-  <div class="bookmarker" ng-hide="!User">
-    <input type="button" name="name" value="Bookmark" ng-click="bookmark(currentPage._id)">
-  </div>
 </div>
+</section>

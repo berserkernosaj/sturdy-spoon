@@ -1,0 +1,442 @@
+html, body, h1, h2, h3, h4, h5 {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+.story{
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+.storyBackground{
+  background-image: url("../images/scrolls-34607_960_720.png");
+  background-size: contain;
+  width: 320px;
+  height: 480px;
+  padding-top: 120px;
+  margin: auto;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.storyTextBox{
+  margin: 0px 50px 0px;
+}
+.storyText{
+}
+.welcome{
+  text-align: center;
+  width: 320px;
+  height: 480px;
+  background-image: url("../images/13-11-02-olb-by-RalfR-03.jpg");
+  background-repeat: no-repeat;
+}
+.register{
+  text-align: center;
+  background: gray;
+}
+.userDisplay{
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: inline;
+}
+.userbox{
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+.loginPage{
+    position:fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    opacity: .5;
+    z-index: 4;
+    background-color: #626262;
+}
+.login{
+  text-align: center;
+  position: absolute;
+  top: 145px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding-top: 40px;
+  width: 370px;
+  height: 180px;
+  background-image: url("../images/scroll-34606_960_720.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 4;
+}
+.loginFields{
+  text-align: right;
+  padding-right: 100px;
+}
+.loginButton{
+  padding: 5px;
+}
+.bookmarker{
+  width: 50px;
+  height: 90px;
+  position: absolute;
+  top: 23px;
+  right: 47px;
+}
+.storyBackgroundStory{
+  background-image: url("../images/scrolls-34607_960_720.png");
+  background-size: contain;
+  width: 750px;
+  height: 900px;
+  padding-top: 120px;
+  margin: auto;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.storyBackgroundStory :focus{
+  outline: none;
+}
+.bookmarks{
+  font-size: 34px;
+  position: relative;
+  z-index: 1;
+}
+.bookmarks :hover{
+  cursor: pointer;
+}
+.bookmarkButtons{
+  width: 280px;
+  height: 120px;
+  z-index: 2;
+}
+.bookmarkText{
+  position: absolute;
+  font-size: 16px;
+  padding: 30px 15px;
+  top: 0;
+  left: 235px;
+  width: 280px;
+  margin: 0;
+  height: 120px;
+  z-index: 3;
+}
+.remBookmark{
+  position: absolute;
+  top: 15px;
+  left: 485px;
+  z-index: 3;
+  height: 25px;
+  width: 25px;
+}
+.choices{
+  font-size: 34px;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+}
+.choices :hover{
+  cursor: pointer;
+}
+.choiceButtons{
+  width: 280px;
+  height: 120px;
+  z-index: 2;
+}
+.choiceText{
+  position: absolute;
+  font-size: 16px;
+  padding: 30px 15px;
+  top: 0;
+  width: 280px;
+  margin: 0;
+  height: 120px;
+  z-index: 3;
+}
+.navButtonsBox{
+  font-size: 34px;
+  position: relative;
+  z-index: 1;
+}
+.navButtons{
+  width: 280px;
+  height: 120px;
+  z-index: 2;
+}
+.navButtonsBox :hover{
+  cursor: pointer;
+}
+.navText{
+  position: absolute;
+  font-size: 34px;
+  top: 0;
+  left: 235px;
+  width: 280px;
+  height: 120px;
+  z-index: 3;
+  margin: 0;
+  padding: 30px;
+  color: black;
+}
+.welcomeButtons{
+  position: relative;
+}
+
+
+.menuBar{
+  text-align: center;
+  display: none;
+  width: 100%;
+}
+.menu{
+  list-style-type: none;
+  margin: 0;
+  padding:  0;
+  padding: 14px 0px;
+  overflow: hidden;
+  background-color: #333;
+}
+.menuButtons{
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  display: none;
+  text-decoration: none;
+  margin: 0;
+  background-color: #333;
+}
+.menuButtonLinks{
+  display: none;
+  color: inherit;
+  text-decoration: inherit;
+  margin: 0;
+}
+.menu :hover {
+  background-color: black;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 550px) {
+  .menuBar{
+    text-align: center;
+    width: 100%;
+  }
+  .menu{
+    list-style-type: none;
+    margin: 0;
+    padding:  0;
+    padding: 14px 0px;
+    overflow: hidden;
+    background-color: #333;
+  }
+  .menuButtons{
+    display: inline;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    margin: 0;
+    background-color: #333;
+  }
+  .menuButtonLinks{
+    color: inherit;
+    text-decoration: inherit;
+    margin: 0;
+  }
+  .menu :hover {
+    background-color: black;
+    cursor: pointer;
+  }
+}
+@media screen and (min-width: 75000px) {
+  .menuBar{
+    text-align: center;
+    width: 100%;
+  }
+  .foot{
+    width: 100%;
+    height: 100px;
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+  }
+  .story{
+    text-align: center;
+    width: 100%;
+    height: 100%;
+  }
+  .storyBackground{
+    background-image: url("../images/scrolls-34607_960_720.png");
+    background-size: contain;
+    width: 750px;
+    height: 900px;
+    padding-top: 120px;
+    margin: auto;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+  .storyTextBox{
+    margin: 0px 50px 0px;
+  }
+  .storyText{
+  }
+  .welcome{
+    text-align: center;
+    width: 100%;
+    height: 100vh;
+    background-image: url("../images/13-11-02-olb-by-RalfR-03.jpg");
+    background-repeat: no-repeat;
+  }
+  .register{
+    text-align: center;
+    background: gray;
+  }
+  .userDisplay{
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: inline;
+  }
+  .userbox{
+    text-align: center;
+    height: 100%;
+    width: 100%;
+  }
+  .loginPage{
+      position:fixed;
+      top:0;
+      left:0;
+      width: 100%;
+      height: 100%;
+      opacity: .5;
+      z-index: 4;
+      background-color: #626262;
+  }
+  .login{
+    text-align: center;
+    position: absolute;
+    top: 145px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding-top: 40px;
+    width: 370px;
+    height: 180px;
+    background-image: url("../images/scroll-34606_960_720.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 4;
+  }
+  .loginFields{
+    text-align: right;
+    padding-right: 100px;
+  }
+  .loginButton{
+    padding: 5px;
+  }
+  .bookmarker{
+    width: 50px;
+    height: 90px;
+    position: absolute;
+    top: 23px;
+    right: 47px;
+  }
+  .storyBackgroundStory{
+    background-image: url("../images/scrolls-34607_960_720.png");
+    background-size: contain;
+    width: 750px;
+    height: 900px;
+    padding-top: 120px;
+    margin: auto;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+  .storyBackgroundStory :focus{
+    outline: none;
+  }
+  .bookmarks{
+    font-size: 34px;
+    position: relative;
+    z-index: 1;
+  }
+  .bookmarks :hover{
+    cursor: pointer;
+  }
+  .bookmarkButtons{
+    width: 280px;
+    height: 120px;
+    z-index: 2;
+  }
+  .bookmarkText{
+    position: absolute;
+    font-size: 16px;
+    padding: 30px 15px;
+    top: 0;
+    width: 280px;
+    margin: 0;
+    height: 120px;
+    z-index: 3;
+  }
+  .remBookmark{
+    position: absolute;
+    top: 15px;
+    left: 485px;
+    z-index: 3;
+    height: 25px;
+    width: 25px;
+  }
+  .choices{
+    font-size: 34px;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+  }
+  .choices :hover{
+    cursor: pointer;
+  }
+  .choiceButtons{
+    width: 280px;
+    height: 120px;
+    z-index: 2;
+  }
+  .choiceText{
+    position: absolute;
+    font-size: 16px;
+    padding: 30px 15px;
+    top: 0;
+    width: 280px;
+    margin: 0;
+    height: 120px;
+    z-index: 3;
+  }
+  .navButtonsBox{
+    font-size: 34px;
+    position: relative;
+    z-index: 1;
+  }
+  .navButtons{
+    width: 280px;
+    height: 120px;
+    z-index: 2;
+  }
+  .navButtonsBox :hover{
+    cursor: pointer;
+  }
+  .navText{
+    position: absolute;
+    font-size: 34px;
+    top: 0;
+    width: 280px;
+    height: 120px;
+    z-index: 3;
+    margin: 0;
+    padding: 30px;
+    color: black;
+  }
+  .welcomeButtons{
+    position: relative;
+  }
+}
