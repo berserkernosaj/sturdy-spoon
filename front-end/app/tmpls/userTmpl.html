@@ -3,13 +3,22 @@
 <div class="storyBackground">
   <register-directive></register-directive>
   <login-directive></login-directive>
-<h2>Hello {{User.userName}}</h2>
-<div ="userButtons">
- <input type="button" value="Begin" ng-click="goBook('56f320b435f8b8ec0e81eba7')">
+<h2 class="somtimesYouGottaBeBig" >Hello {{User.userName}}</h2>
+
+<div class="navButtonsBox">
+  <div class="buttonWrapper">
+
+ <input type="image" src="app/images/scroll-34606_960_720.png" class="navButtons"/>
+<p class="navText" ng-click="goBook('56f320b435f8b8ec0e81eba7')">
+ Begin
+</p>
 </div>
+</div>
+
 <div class="bookmarks" ng-repeat="bookmark in User.bookmarks">
-  <input type="button" name="name" value="{{bookmark.pathTitle}}"  ng-click="goBook(bookmark._id)">
-  <input type="button" name="name" ng-click="remBookmark($index)" value="Delete">
+  <input type="image" src="app/images/scroll-34606_960_720.png" class="bookmarkButtons" name="name" value="{{bookmark.pathTitle}}"/>
+  <p class="bookmarkText" ng-click="goBook(bookmark._id)">{{bookmark.pathTitle}}</p>
+  <input type="image" class="remBookmark" src="app/images/2000px-Trash_Can.svg.png" ng-click="remBookmark($index)">
 </div>
 </div>
 </section>

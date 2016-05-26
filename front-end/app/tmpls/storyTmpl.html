@@ -2,7 +2,7 @@
 <div class="story">
   <register-directive></register-directive>
   <login-directive></login-directive>
-  <div class="storyBackground">
+  <div class="storyBackgroundStory">
 
     <div class="storyTextBox">
 
@@ -13,7 +13,7 @@
       <p class="choiceText" ng-click="pageFinder(choice._id)">{{choice.pathTitle}}</p>
     </div>
     <!-- ng-hide="!User" -->
-      <input type="image" class="bookmarker" src="app/images/Bookmark_icon.svg.png" ng-click="bookmark(currentPage._id)">
+      <input type="image" class="bookmarker" src="app/images/Bookmark_icon.svg.png" ng-click="bookmark(currentPage._id)" ng-hide="!User">
 
   </div>
 </div>
