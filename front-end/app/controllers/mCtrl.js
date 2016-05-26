@@ -10,6 +10,7 @@ $scope.registerFunc = function(user, email, pass){
       $scope.email = '';
       $scope.password = '';
       $scope.registerShow = true;
+      $scope.loginShower();
     }
   });
 }
@@ -20,7 +21,6 @@ $scope.registerShower = function(){
 $scope.littleMenuHide = true;
 $scope.menuShower = function (){
   $scope.littleMenuHide = !$scope.littleMenuHide;
-  console.log($scope.littleMenuHide);
 }
 $scope.registerHider = function(){
   $scope.userName = '';
@@ -43,10 +43,9 @@ $scope.loginFunc = function(user, pass){
       $scope.userName = '';
       $scope.password = '';
       $scope.loginShow = true;
-      console.log(res);
       srvc.setSuperUser(res.data);
       $scope.User = srvc.superUser;
-      console.log(srvc.superUser, $scope.User);
+      $state.go('user');
     }
   });
 }
