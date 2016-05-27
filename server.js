@@ -67,28 +67,28 @@ db.once('open', function() {
 
 //Story Path Stuff Here:
 
-app.post('/api/storyPath', function(req, res, next){
-  var storyPath = new StoryPath(req.body);
-  storyPath.save(function(err, sP){
-    if (err){
-      return res.status(500).send(err);
-    }else{
-      return res.json(sP);
-    }
-  });
-});
+// app.post('/api/storyPath', function(req, res, next){
+//   var storyPath = new StoryPath(req.body);
+//   storyPath.save(function(err, sP){
+//     if (err){
+//       return res.status(500).send(err);
+//     }else{
+//       return res.json(sP);
+//     }
+//   });
+// });
 
 
-app.put('/api/storyPath:id', function(req, res, next){
-  var id = req.params.id;
-  StoryPath.findByIdAndUpdate(id, {$set: req.body}, {new: true}, function(err, storyPath){
-    if (err){
-      return res.status(500).send(err);
-    }else{
-      return res.status(200).json(storyPath);
-    }
-  });
-});
+// app.put('/api/storyPath:id', function(req, res, next){
+//   var id = req.params.id;
+//   StoryPath.findByIdAndUpdate(id, {$set: req.body}, {new: true}, function(err, storyPath){
+//     if (err){
+//       return res.status(500).send(err);
+//     }else{
+//       return res.status(200).json(storyPath);
+//     }
+//   });
+// });
 
 app.get('/api/storyPath:id', function(req, res, next){
   var id = req.params.id;
@@ -131,15 +131,15 @@ app.post('/api/users/bookmark/remove:id', UserCtrl.bookmarkRem);
 
 // holy crap delete this test before live hosting this thing!
 
-app.get('/api/users', function(req, res, next){
-  User.find(function(err, users){
-    if (err){
-      return res.status(500).send(err);
-    }else{
-      return res.status(200).json(users);
-    }
-  });
-});
+// app.get('/api/users', function(req, res, next){
+//   User.find(function(err, users){
+//     if (err){
+//       return res.status(500).send(err);
+//     }else{
+//       return res.status(200).json(users);
+//     }
+//   });
+// });
 
 
 
