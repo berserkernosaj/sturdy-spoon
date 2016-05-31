@@ -1,13 +1,20 @@
 angular.module('harold').controller('mCtrl', function($scope, $state, srvc){
+$scope.getTheUserIfItIsReal = function() {
+  srvc.getTheUserIfItIsReal().then(function (res) {
+    console.log(res);
+    srvc.setSuperUser(res);
+    $scope.User = srvc.superUser;
+  });
+}
+$scope.getTheUserIfItIsReal();
 
-$scope.registerFunc = function(user, email, pass){
-  srvc.register(user, email, pass).then(function(res){
+$scope.registerFunc = function(user, pass){
+  srvc.register(user, pass).then(function(res){
     if (res.status !== 200){
       alert(res);
     }
     else{
       $scope.userName = '';
-      $scope.email = '';
       $scope.password = '';
       $scope.registerShow = true;
       $scope.loginShower();
@@ -24,12 +31,13 @@ $scope.menuShower = function (){
 }
 $scope.registerHider = function(){
   $scope.userName = '';
-  $scope.email = '';
   $scope.password = '';
   $scope.registerShow = true;
 }
 $scope.userCheck = function() {
+  console.log($scope.User);
   if(!$scope.User){
+    console.log(!$scope.User);
     $state.go("welcome");
   }
 }
