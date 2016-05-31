@@ -5,6 +5,7 @@ var mongoose = require('mongoose');
 var passport = require('passport')
   , LocalStrategy = require('passport-local').Strategy;
 var expressSession = require('express-session');
+var MongoDBStore = require('connect-mongodb-session')(expressSession);
 var UserCtrl = require('./serverControllers/UserCtrl');
 var requests = require('./serverControllers/requests.js');
 var corsOptions = {
@@ -17,6 +18,15 @@ var StoryPath = require('./schemas/storyPath');
 var port = 8782;
 var app = express();
 var db = mongoose.connection;
+var store = new MongoDBStore(
+  {
+    uri: "mongodb://localhost/test",
+    collection: "mySessions"
+  });
+  store.on("error", function(error){
+    assert.ifError(error);
+    assert.ok(false);
+  });
 
 
 
@@ -53,7 +63,11 @@ app.use(bodyParser.json());
 app.use(expressSession({
   secret: config.sessionSecret,
   resave: false,
-  saveUnitialized: false
+  saveUninitialized: false,
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24 * 7
+  },
+  store: store
  }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -101,6 +115,7 @@ app.get('/api/storyPath:id', function(req, res, next){
   });
 });
 
+
 app.get('/api/storyPath', function(req, res, next){
   StoryPath.find(function(err, storyPaths){
     if (err){
@@ -109,6 +124,24 @@ app.get('/api/storyPath', function(req, res, next){
       return res.status(200).json(storyPaths);
     }
   });
+});
+
+// test stuff here:
+app.get('/api/user', function(req, res, next) {
+  if (req.user){
+    var id = req.user.id;
+    User.findById(id).populate("bookmarks").exec(function(err, user) {
+      if (err){
+        return res.status(500).send(err);
+      }
+      else {
+        res.status(200).json(user);
+      }
+    })
+  }
+  else {
+    res.status(200).send("Hey that aint a user");
+  }
 });
 
 

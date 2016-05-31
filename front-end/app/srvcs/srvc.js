@@ -22,13 +22,28 @@ this.getStory = function() {
     return res.data;
   })
   }
-  this.register = function(user, email, pass){
+  this.getTheUserIfItIsReal = function() {
+     return $http({
+      method: "GET",
+      url:'/api/user'
+    }).then(function(res){
+      if (res.status !== 200){
+        alert("Sorry, there was a problem");
+      }
+      if (res.data === "Hey that aint a user"){
+        return undefined;
+      }else {
+        return res.data;
+      }
+    })
+    }
+
+  this.register = function(user, pass){
     return $http({
       method: "POST",
       url:'/api/users/register',
       data: {
         userName: user,
-        email: email,
         password: pass
       }
     }).then(function success(res){
@@ -43,10 +58,6 @@ this.getStory = function() {
         var eggnog = "That username already exists."
         return eggnog;
       }
-      if (err.data.errmsg.includes("email")){
-        var eggnog = "That email already exists."
-        return eggnog;
-      };
     });
   }
 
