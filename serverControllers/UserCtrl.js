@@ -15,7 +15,6 @@ module.exports = {
   logOut: function(req, res, next) {
     req.logout();
     req.session.destroy();
-    console.log("User Logged Out");
     res.status(200).send({msg: "you have been logged out"});
   },
   loginFailed: function(req, res, next){

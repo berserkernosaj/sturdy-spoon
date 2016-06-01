@@ -50,10 +50,8 @@ this.getStory = function() {
       if (res.status !== 200){
         alert("Sorry, there was a problem or was there?");
       }
-      console.log(res);
       return res;
     }, function failure(err) {
-      console.log(err);
       if (err.data.errmsg.includes('userName')){
         var eggnog = "That username already exists."
         return eggnog;
@@ -73,10 +71,8 @@ this.getStory = function() {
       if (res.status !== 200){
         alert("Sorry, there was a problem or was there?");
       }
-      console.log(res);
       return res;
     }, function failure(err) {
-      console.log(err);
       return err;
     });
   }

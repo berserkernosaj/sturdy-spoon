@@ -151,7 +151,6 @@ app.get('/api/story', requests.storyGet);
 //User Stuff Here:
 app.post('/api/users/register', UserCtrl.register);
 app.post('/api/users/login', passport.authenticate('local-login', {failureRedirect: '/api/users/failed'}), function(req, res, next) {
-  console.log('Logged in');
   res.status(200).json(req.user);
 });
 app.post('/api/users/failed', UserCtrl.loginFailed);
