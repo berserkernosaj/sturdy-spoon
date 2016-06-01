@@ -23,7 +23,6 @@ $scope.bookmark = function(currentPage){
       alert(res.data.msg);
     }
     else{
-      console.log(res.data);
       srvc.setSuperUser(res.data);
       $scope.User = srvc.superUser;
     }

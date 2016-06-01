@@ -1,7 +1,6 @@
 angular.module('harold').controller('mCtrl', function($scope, $state, srvc){
 $scope.getTheUserIfItIsReal = function() {
   srvc.getTheUserIfItIsReal().then(function (res) {
-    console.log(res);
     srvc.setSuperUser(res);
     $scope.User = srvc.superUser;
   });
@@ -35,9 +34,7 @@ $scope.registerHider = function(){
   $scope.registerShow = true;
 }
 $scope.userCheck = function() {
-  console.log($scope.User);
   if(!$scope.User){
-    console.log(!$scope.User);
     $state.go("welcome");
   }
 }
