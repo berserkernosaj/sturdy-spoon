@@ -1,16 +1,25 @@
 var User = require('../schemas/userSchema');
+var password = require('./hashsalt.js');
 
 module.exports = {
   register: function(req, res, next){
     var user = new User(req.body);
-            user.save(function(err, user){
-              if (err){
-                console.log(err);
-                return res.status(500).send(err);
-              }else{
-                return res.status(200).json(res.status);
-              }
-            });
+    password(user.password).hash(function(error, hash){
+      if(error){
+        throw new Error("Something went wrong!");
+      }else {
+        user.password = hash;
+        user.save(function(err, user){
+          if (err){
+            console.log(err);
+            return res.status(500).send(err);
+          }else{
+            return res.status(200).json(res.status);
+          }
+        });
+      }
+    });
+
   },
   logOut: function(req, res, next) {
     req.logout();
