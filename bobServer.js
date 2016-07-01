@@ -13,6 +13,7 @@ var corsOptions = {
 };
 var config = require('./config.js');
 var User = require('./schemas/userSchema');
+var superPassword = require('./serverControllers/hashsalt.js');
 var Story = require('./schemas/storySchema');
 var StoryPath = require('./schemas/storyPath');
 var port = 8782;
@@ -40,10 +41,16 @@ passwordField: 'password'
       if (!user) {
         return done(null, false, { message: 'Incorrect username.' });
       }
-      if (user.password !== password) {
-        return done(null, false, { message: 'Incorrect password.' });
-      }
-      return done(null, user);
+      superPassword(password).verifyAgainst(user.password, function(error, verified){
+        if(error){
+          throw new Error("Something went wrong!");
+        }
+        if(!verified){
+          return done(null, false, { message: 'Incorrect password.' });
+        }else{
+          return done(null, user);
+        }
+      });
     });
   }
 ));
